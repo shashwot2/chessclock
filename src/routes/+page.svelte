@@ -1,14 +1,18 @@
 <script lang="ts">
-    let Lcounter = 500;
-    let interval: ReturnType<typeof setInterval>;
-    let Rcounter = 5;
+    // This is the total number of time allotted to right and left
+    let Lcounter:number = 10;
+    // let Rcounter:number = 10;
+    let LcounterID: ReturnType<typeof setInterval>;
     function startTimer() {
-        interval = setInterval(() => {
-            if (Lcounter > 0)
+        LcounterID = setInterval(() => {
+            if (Lcounter > 0) {
                 Lcounter--;
-            else if (Lcounter == 0)
-                clearInterval(interval)
-        }, 1)
+            }
+            else if (Lcounter == 0) {
+                clearInterval(LcounterID)
+                alert("Time is up!")                
+            }
+        }, 1000)
 
     }
 </script>
