@@ -1,26 +1,44 @@
 <script lang="ts">
-    // This is the total number of time allotted to right and left
+    // This is the total number of time alotted to right and left
+    // Player1 is the left player and Player2 is the right player
+    let currentplayer: number = 1;
     let Lcounter:number = 10;
-    // let Rcounter:number = 10;
-    let LcounterID: ReturnType<typeof setInterval>;
-    function startTimer() {
-        LcounterID = setInterval(() => {
-            if (Lcounter > 0) {
+    let Rcounter:number = 10;
+    let counterID: ReturnType<typeof setInterval>;
+    function startstopTimer() {
+        counterID = setInterval(() => {
+            if ((Lcounter > 0) && (currentplayer == 1)) {
                 Lcounter--;
             }
+            else if ((Lcounter > 0) && (currentplayer == 2)) {
+                Rcounter--;
+            }
             else if (Lcounter == 0) {
-                clearInterval(LcounterID)
-                alert("Time is up!")                
+                clearInterval(counterID)
+                alert("Time is up! left wins!")
+                return                
+            }
+            else if (Rcounter == 0) {
+                clearInterval(counterID)
+                alert("Time is up! right wins!")
+                return
             }
         }, 1000)
-
+    }
+    function switchPlayers() {
+        if (currentplayer == 1) {
+            currentplayer = 2;
+        }
+        else if (currentplayer == 2) {
+            currentplayer = 1;
+        }
     }
 </script>
 
-<button on:click={startTimer}>
+<button on:click={startstopTimer}>
     {Lcounter} 
 </button>
 
-<button>
-    white
+<button on:click={startstopTimer}>
+    {Rcounter}
 </button>
