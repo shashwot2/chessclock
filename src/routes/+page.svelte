@@ -4,7 +4,7 @@
 
     // This is the total number of time alotted to right and left
     // Player1 is the left player and Player2 is the right player
-    let currentplayer: number = 1;
+    let currentplayer: number = 2;
     let Lcounter:number = 10;
     let Rcounter:number = 10;
     let counterID: ReturnType<typeof setInterval>;
