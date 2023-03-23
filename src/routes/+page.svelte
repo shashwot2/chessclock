@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
-	import {convertSecToMin} from './utils/secondstominutes.svelte';
+	import { convertSecToMin } from './utils/secondstominutes.svelte';
 	// This is the total number of time alotted to right and left
 	// Player1 is the left player and Player2 is the right player
 	// Timer's are allotted in seconds
@@ -43,15 +43,13 @@
 
 <div class="container">
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="clock {currentplayer === 1 ? 'active' : ''}"
-		on:click={startstopTimer}>
+	<div class="clock {currentplayer === 1 ? 'active' : ''}" on:click={startstopTimer}>
 		{convertSecToMin(LeftPTimer)}
-		</div>
+	</div>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="clock {currentplayer === 2 ? 'active' : ''}"
-		on:click={startstopTimer}>
+	<div class="clock {currentplayer === 2 ? 'active' : ''}" on:click={startstopTimer}>
 		{convertSecToMin(RightPTimer)}
-		</div>
+	</div>
 </div>
 
 <style>
